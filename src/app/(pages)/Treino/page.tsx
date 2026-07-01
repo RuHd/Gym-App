@@ -7,7 +7,6 @@ import { FaClockRotateLeft } from "react-icons/fa6"
 import { IoIosArrowForward } from "react-icons/io"
 import './page.scss'
 import { MdOutlineElectricBolt } from "react-icons/md"
-import useWorkoutStore from "@/features/workout/services/store/workoutStore"
 import SetContainer from "@/components/SetContainer/SetContainer"
 import TimerContainer from "@/components/TimerContainer"
 import { useEffect } from "react"
@@ -16,11 +15,9 @@ import { useRouter } from "next/navigation"
 const Treino = () => {
   
   let workoutLocalStorage = localStorage.getItem("workout-storage")
-  let exercise = workoutLocalStorage ? JSON.parse(workoutLocalStorage).state.workout.exercises[0] : null
+  let exercise = workoutLocalStorage ? JSON.parse(workoutLocalStorage).state.workout.exercises[0] : undefined
 
   const router = useRouter()
-
-  
 
   useEffect(() => {
 
@@ -36,10 +33,8 @@ const Treino = () => {
     }
   }, [])
 
-  
-  console.log(exercise)
-  return (
-    <div style={exercise == undefined ? {opacity: 0} : null}>
+    return (
+    <div style={exercise ? {opacity: 0} : undefined}>
       <header>
         <HeadTitle as="h1" text="Workout" style={{color: "#00ff41"}}/>
         <CustomBtn 

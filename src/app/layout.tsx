@@ -33,7 +33,7 @@ export default function RootLayout({
       <body>
         <Menu/>
         <main className="page-transition">
-          <AlertMessage message="O usuário foi cadastrado" msgType="error" />
+          <AlertMessage message="O usuário foi cadastrado" msgType="alert" />
           <Template>
             {children}
           </Template>
