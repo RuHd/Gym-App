@@ -16,18 +16,23 @@
 
 body {
   max-width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $Neutral;
+  transition: .5s opacity;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+
 }
 
 /* Tipografia padrão */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6{
   line-height: 1.4;
   font-weight: bold;
   font-family: var(--font-lexend);
-  color: $Primary;
-  font-size: $Title-font-size;
 }
 
 /* =========================
@@ -36,8 +41,23 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
   cursor: pointer;
-  background: none;
+  background-color: transparent;
 }
 
+.page-transition {
+  animation: fadeIn .5s  ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 

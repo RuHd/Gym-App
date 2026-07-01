@@ -1,0 +1,58 @@
+@import '../../../styles/Topography.scss';
+
+main {
+    max-width: 100%;
+    padding: 15px;
+
+    &>* {
+        max-width: 100%;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .exercise-name-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+            font-weight: bold;            
+        }
+
+        h3 {
+            color: $Secondary;
+            font-size: $text-sm;
+            font-style: italic;
+        }
+      
+    }
+
+    .session-history {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        & div:nth-child(1) {
+            font-size: $text-sm;
+            color: $Secondary;
+        }
+    }
+
+    .timer-btns {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .resting-timer {
+        flex-direction: column; 
+        justify-Content: center;
+        align-items: center;
+    }
+}

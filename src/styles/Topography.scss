@@ -10,3 +10,10 @@ $Title-font-size: 32px;
 $Larger-title-font-size: 64px;
 $Label-font-size: 12px;
 $Layout-spacing: 12px;
+$padding-size: 12px;
+
+$text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+$text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+$text-md: clamp(1rem, 0.95rem + 0.4vw, 1.125rem);
+$text-lg: clamp(1.125rem, 1.05rem + 0.5vw, 1.25rem);
+$text-xl: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);

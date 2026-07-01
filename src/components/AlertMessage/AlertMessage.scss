@@ -1,0 +1,25 @@
+@import '../../styles/Topography.scss';
+
+.message {
+    position: fixed;
+    
+    display: inline-block;
+    padding: 13px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    
+}
+
+.error {
+    border: 2px solid red;
+    box-shadow: 5 5 0 rgba(255, 0, 0, 0.46);
+
+}
+
+.alert {
+    border: 2px solid $Primary;
+    box-shadow: 5 5 0 #00ff4081;
+
+}

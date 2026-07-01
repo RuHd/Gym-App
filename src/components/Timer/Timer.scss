@@ -1,0 +1,13 @@
+@import '../../styles/Topography.scss';
+
+.Timer {
+    color: $Secondary;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.timerDone {
+    background-color: red;
+    color: white;
+}

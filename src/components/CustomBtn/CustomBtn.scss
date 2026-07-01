@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    border: none;
+
+    & * {
+        pointer-events: none;
+    }
 }
 
 .columnDirection {

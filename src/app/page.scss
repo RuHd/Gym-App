@@ -1,0 +1,49 @@
+.home {
+    padding: 40px;
+    &>section {
+        // border: 2px solid red;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+}
+
+.home-welcome {
+    text-transform: uppercase;
+    h2 {
+        
+        font-size: 2rem;
+    }
+    p {
+        font-size: .8em;
+        letter-spacing: 1px;
+        opacity: .5;
+    }
+}
+
+.home-heropage {
+   .layout-heropage {
+        p {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        svg {
+            fill: black;
+        }
+   }
+}
+
+.home-cardBtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &>* {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 230px;
+    }
+}

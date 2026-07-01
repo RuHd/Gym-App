@@ -1,26 +1,22 @@
+'use client'
+
 import './CustomBtn.scss'
 
 export type CustomBtnPropsType = {
     type: "submit" | "button";
-    children?: React.ReactElement | React.ReactElement[];
-    text: string;
+    children?: React.ReactElement | React.ReactElement[] | string;
     flexDirection?: "column" | "row";
     clickEvent: () => void;
+    onlyIcon?: boolean;
     style?: React.CSSProperties;
 }
 
-const CustomBtn = ({clickEvent = () => console.log("clicked"),type,children, text, flexDirection = "row", ...props} : CustomBtnPropsType) => {
-  const style = {
-    flexDirection: flexDirection,
-    ...props.style
-  }
+const CustomBtn = ({onlyIcon = false,clickEvent ,type,children, flexDirection = "row", ...props} : CustomBtnPropsType) => {
 
   return (
-    <button type={type} className='CustomBtn' onClick={clickEvent} style={{...props.style,flexDirection: flexDirection}}>
+    <button type={type} className='CustomBtn' onClick={clickEvent} style={{...props.style}}>
         {children}
-        <span>{text}</span>
     </button>
   )
 }
-
 export default CustomBtn

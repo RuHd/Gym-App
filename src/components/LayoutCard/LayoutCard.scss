@@ -1,0 +1,10 @@
+@import '../../styles/Topography.scss';
+
+.Layout-card {
+    display: inline-flex;
+    background-color: $card-color;
+    min-height: 100px;
+    min-width: 100px;
+    border-radius: 10px;
+    padding: $padding-size;
+}

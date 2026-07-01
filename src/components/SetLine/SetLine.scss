@@ -1,0 +1,60 @@
+@import '../../styles/Topography.scss';
+
+.SetLine {
+
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #201F1F;
+    border-radius: 10px;
+    gap: 6px;
+    
+
+    & * {
+        color: $white-color;
+        font-weight: bold;
+    }
+
+    &:nth-last-child {
+        align-self: flex-end;
+    }
+
+    input {
+        padding: 12px;
+        width: 100px;
+    }
+
+    button {
+        padding: 12px;
+        color: $white-color;
+        font-weight: bold;
+        background-color: black;
+        border-radius: 5px;
+
+        & * {
+            color: #201F1F;
+        }
+
+    }
+}
+
+.setDone {
+    background-color: $Primary;
+    input {
+        background-color: #8CE584;
+    }
+
+    & * {
+        color: #201F1F;
+    }
+
+    button {
+        background-color: black;
+        color: #8CE584;
+
+        & * {
+            color: white;
+        }
+    }
+}
