@@ -8,6 +8,8 @@ interface ProfileState {
   changeMeasure: (altura: string, peso: string) => void;
 }
 
+// Store do perfil do usuário (Zustand + persist -> localStorage "user-profile").
+// Não é autenticação real: apenas guarda os dados preenchidos no formulário de /Cadastro.
 const useProfileState = create<ProfileState>()(
   persist(
     (set) => ({

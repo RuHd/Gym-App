@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import { setOnlyNums } from "@/app/utils/functions";
 import { Exercise } from "@/features/workout/types";
 
+// Formulário de criação de exercício: nome, séries, repetições e grupo muscular (A-D).
+// Ao salvar, adiciona o exercício na store de treino (workoutStore).
 const AddTreino = () => {
     const addExercise = useWorkoutStore((state) => state.addExercise)
 

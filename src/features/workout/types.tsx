@@ -1,3 +1,5 @@
+// Exercise guarda um único reps/weight por exercício, não por série individual —
+// todas as séries de um exercício exibem o mesmo valor (ver SetContainer).
 export type Exercise =  {
     id: string,
     name: string,

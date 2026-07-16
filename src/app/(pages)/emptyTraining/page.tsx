@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+// Estado vazio: exibido quando não há nenhum exercício cadastrado ainda,
+// direcionando o usuário para criar o primeiro em /AddTreino.
 const page = () => {
   return (
     <div 

@@ -7,6 +7,8 @@ import CustomBtn from "@/components/CustomBtn"
 import { useState } from "react"
 import { createFormProfile } from "@/app/utils/functions"
 
+// Formulário de cadastro de perfil (nome, email, altura, peso).
+// Não é autenticação real: só grava os dados na authenticationStore local.
 const Cadastro = () => {
   const [email, setEmail] = useState("")
   const [name, setname] = useState("")

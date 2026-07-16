@@ -26,6 +26,8 @@ interface WorkoutStore {
   ) => void;
 }
 
+// Store global do treino atual (Zustand + persist -> localStorage "workout-storage").
+// Guarda só um treino por vez: um GroupExercises com sua lista de Exercise.
 const useWorkoutStore = create<WorkoutStore>()(
   persist(
     (set) => ({

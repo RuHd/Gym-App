@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: "Created By Ruan Mesquita",
 };
 
+// Layout raiz: monta a navegação fixa (Menu), o alerta global e o Template,
+// que aplica a transição de fade-in entre rotas.
 export default function RootLayout({
   children,
 }: Readonly<{

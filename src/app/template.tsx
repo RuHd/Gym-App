@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 
+// Envolve cada página num <main> remontado a cada troca de rota (key={pathname}),
+// disparando a animação .page-transition (fade-in) definida em globals.scss.
 export default function Template({
   children,
 }: {

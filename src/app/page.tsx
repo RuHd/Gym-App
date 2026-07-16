@@ -10,6 +10,7 @@ import { FiPlusCircle } from "react-icons/fi";
 
 
 
+// Página inicial: atalhos para iniciar treino, listar exercícios e criar exercícios.
 export default function Home() {
   return (
     <div className="home">
