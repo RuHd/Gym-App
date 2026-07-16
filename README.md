@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gym App (Volt)
+
+Aplicação de treino pessoal desenvolvida em Next.js, para criar exercícios, organizá-los em grupos de treino (A, B, C, D) e acompanhar sessões de treino em tempo real, com contagem de séries, repetições, carga e descanso entre séries.
+
+Todo o armazenamento é feito localmente no navegador (via `localStorage`), sem necessidade de backend ou banco de dados — é um projeto front-end completo, ideal para uso pessoal ou como estudo de arquitetura front-end.
+
+## Funcionalidades
+
+- **Cadastro de perfil** — nome, e-mail, altura e peso, salvos localmente (sem autenticação real).
+- **Criação de exercícios** — nome, número de séries/repetições e grupo muscular (A/B/C/D).
+- **Sessão de treino** — tela dedicada para executar o treino do dia, com:
+  - Lista de séries editável (repetições e carga por série).
+  - Timer de descanso entre séries (iniciar, pular, adicionar +15s).
+  - Histórico da última sessão.
+- **Estado vazio guiado** — se nenhum exercício foi criado ainda, o usuário é direcionado a criar o primeiro.
+- **Navegação inferior fixa** — acesso rápido a Início, Adicionar Exercício, Cadastro e Treino.
+
+## Tecnologias
+
+- [Next.js 16](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Zustand](https://github.com/pmndrs/zustand) com middleware `persist` (estado global + localStorage)
+- [Sass](https://sass-lang.com/) (um arquivo `.scss` por componente)
+- [Storybook](https://storybook.js.org/) para desenvolvimento isolado de componentes
+- [Vitest](https://vitest.dev/) + Playwright para testes
+- [react-icons](https://react-icons.github.io/react-icons/)
+
+## Estrutura do projeto
+
+```
+src/
+├── app/            # Rotas (App Router), layout raiz e transições de página
+├── components/     # Componentes de UI reutilizáveis (botões, inputs, timer, etc.)
+├── features/        # Lógica de domínio por feature (authentication, workout)
+│   ├── authentication/  # Tipos e store Zustand do perfil do usuário
+│   └── workout/         # Tipos, mocks e store Zustand dos treinos/exercícios
+├── hooks.tsx        # Hooks compartilhados
+└── stories/         # Boilerplate do Storybook
+```
+
+## Rotas principais
+
+| Rota | Descrição |
+| --- | --- |
+| `/` | Início, com atalhos para iniciar treino, listar e criar exercícios |
+| `/AddTreino` | Formulário de criação de exercício |
+| `/Treino` | Sessão de treino ativa (séries, timer de descanso) |
+| `/emptyTraining` | Estado vazio, quando não há exercícios cadastrados |
+| `/Cadastro` | Cadastro/edição do perfil do usuário |
 
 ## Getting Started
 
-First, run the development server:
+Instale as dependências e rode o servidor de desenvolvimento:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para desenvolver componentes isoladamente com o Storybook:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run storybook
+```
 
-## Learn More
+## Testes
 
-To learn more about Next.js, take a look at the following resources:
+O projeto usa [Vitest](https://vitest.dev/) integrado ao Storybook para testes de componentes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vitest
+```
