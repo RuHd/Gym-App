@@ -9,32 +9,43 @@ import './page.scss'
 import { MdOutlineElectricBolt } from "react-icons/md"
 import SetContainer from "@/components/SetContainer/SetContainer"
 import TimerContainer from "@/components/TimerContainer"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { Exercise } from "@/features/workout/types"
 
+// Tela de sessão de treino ativa: mostra o primeiro exercício salvo no workoutStore.
+// Se não houver exercício válido (storage ausente, vazio ou corrompido), redireciona para /emptyTraining.
 const Treino = () => {
-  
-  let workoutLocalStorage = localStorage.getItem("workout-storage")
-  let exercise = workoutLocalStorage ? JSON.parse(workoutLocalStorage).state.workout.exercises[0] : undefined
-
   const router = useRouter()
+  const [exercise, setExercise] = useState<Exercise | null>(null)
+  const [checked, setChecked] = useState(false)
 
   useEffect(() => {
+    const workoutLocalStorage = localStorage.getItem("workout-storage")
+    let firstExercise: Exercise | undefined
 
-    if (workoutLocalStorage == undefined) {
-        router.push('/emptyTraining')
-        console.log(workoutLocalStorage)
-    } else {
-      
+    try {
+      firstExercise = workoutLocalStorage
+        ? JSON.parse(workoutLocalStorage).state.workout.exercises[0]
+        : undefined
+    } catch {
+      localStorage.removeItem("workout-storage")
+      firstExercise = undefined
     }
-  
-    return () => {
-      
+
+    if (!firstExercise) {
+      router.push('/emptyTraining')
+      return
     }
-  }, [])
+
+    setExercise(firstExercise)
+    setChecked(true)
+  }, [router])
+
+  if (!checked || !exercise) return null
 
     return (
-    <div style={exercise ? {opacity: 0} : undefined}>
+    <div>
       <header>
         <HeadTitle as="h1" text="Workout" style={{color: "#00ff41"}}/>
         <CustomBtn 
