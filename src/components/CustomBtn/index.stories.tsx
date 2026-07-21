@@ -1,3 +1,4 @@
+import { fn } from "storybook/test";
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import Index from './index';
@@ -12,9 +13,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    "children": [
-      "Teste"
-    ],
-    "text": "text",
+    type: "button",
+    clickEvent: fn(),
+    children: "Teste",
   },
 };
